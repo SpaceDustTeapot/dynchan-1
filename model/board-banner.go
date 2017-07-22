@@ -1,5 +1,6 @@
 package model
 
+// BoardBanner represents attachment, title, and subtitle banners for Board entities.
 type BoardBanner struct {
 	ID         uint64      `gorm:"column:id;primary_key;unique;not null"`
 	Board      Board       `gorm:"column:board;not null"`
@@ -8,6 +9,7 @@ type BoardBanner struct {
 	SubTitle   string      `gorm:"column:subtitle;type:varchar(2048);null"`
 }
 
+// TableName returns a stable table name string for the BoardBanner entity.
 func (BoardBanner) TableName() string {
 	return "board_banners"
 }

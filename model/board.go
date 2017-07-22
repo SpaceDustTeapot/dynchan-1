@@ -1,6 +1,6 @@
 package model
 
-// Board is a model for user and system boards and their parent community hubs.
+// Board represents a community or discussion area.
 type Board struct {
 	ID              uint64 `gorm:"column:id;primary_key;unique;not null"`
 	Community       *Board `gorm:"column:parent;null"`

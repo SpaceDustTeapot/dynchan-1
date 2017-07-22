@@ -1,6 +1,6 @@
 package model
 
-// StoreBoard is a model for boards consisting of filesystem-like storage shares.
+// StoreBoard represents a Board for posting Attachment entities.
 type StoreBoard struct {
 	ID uint64
 

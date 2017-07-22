@@ -8,8 +8,8 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
-// PublicKey is a model for PGP public keys associated with users, post and DM signing, post and DM encryption,
-// and board-level web-of-trust networks.
+// PublicKey represents PGP public keys associated with User entities, Post and DirectMessage signing,
+// Post and DirectMessage encryption, and Board entity web-of-trust networks.
 type PublicKey struct {
 	Fingerprint [20]byte                  `gorm:"column:fingerprint;primary_key;unique;not null;type:binary(20)"`
 	KeyID       *uint64                   `gorm:"column:key_id;index:idx_key_id;null"`

@@ -2,6 +2,7 @@ package model
 
 import "time"
 
+// Post represents a singular topic contribution to a Board.
 type Post struct {
 	ID    uint64 `gorm:"column:id;primary_key;unique;not null"`
 	User  *User  `gorm:"column:user;null"`
