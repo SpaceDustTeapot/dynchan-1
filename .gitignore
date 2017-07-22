@@ -1,6 +1,10 @@
 
+
 # Dynchan builds
 **/dynchan
+
+# VS Code debugger builds
+**/debug
 
 # Dynchan default SQLite database
 **/dynchan2.sqlite
