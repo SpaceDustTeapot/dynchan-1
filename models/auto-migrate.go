@@ -1,10 +1,10 @@
-package model
+package models
 
 import "github.com/jinzhu/gorm"
 
 // AutoMigrate executes the database auto-migration system from Gorm over each entity defined in the model package.
-func AutoMigrate(db *gorm.DB) *gorm.DB {
-	return db.AutoMigrate(
+func AutoMigrate(db *gorm.DB) {
+	db.AutoMigrate(
 		&Attachment{},
 		&BoardBanner{},
 		&Board{},

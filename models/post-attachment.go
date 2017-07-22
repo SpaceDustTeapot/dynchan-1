@@ -1,8 +1,8 @@
-package model
+package models
 
 // PostAttachment represents assocations between Attachment and Post entities.
 type PostAttachment struct {
-	ID   uint64    `gorm:"column:id;primary_key;unique;not null"`
+	ID   int       `gorm:"column:id;primary_key"`
 	Post Post      `gorm:"column:post"`
 	Key  PublicKey `gorm:"column:key"`
 }

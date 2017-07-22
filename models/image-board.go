@@ -1,8 +1,8 @@
-package model
+package models
 
 // ImageBoard represents a Board for shitposting.
 type ImageBoard struct {
-	ID             uint64
+	ID             int  `gorm:"column:id;primary_key"`
 	PermitTripCode bool `gorm:"column:permit_trip"`
 }
 

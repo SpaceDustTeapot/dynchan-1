@@ -1,8 +1,9 @@
-package model
+package models
 
 type UserPublicKey struct {
-	User   User      `gorm:"column:user;not null;index"`
-	Key    PublicKey `gorm:"column:key;not null"`
+	ID     int       `gorm:"column:id;primary_key"`
+	User   User      `gorm:"column:user"`
+	Key    PublicKey `gorm:"column:key"`
 	Active bool      `gorm:"column:active"`
 }
 

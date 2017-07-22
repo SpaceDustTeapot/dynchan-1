@@ -1,11 +1,11 @@
-package model
+package models
 
 import "time"
 
 // Post represents a singular topic contribution to a Board.
 type Post struct {
-	ID    uint64 `gorm:"column:id;primary_key;unique;not null"`
-	User  *User  `gorm:"column:user;null"`
+	ID    int   `gorm:"column:id;primary_key"`
+	User  *User `gorm:"column:user;null"`
 	Board Board
 
 	IsSigned    bool `gorm:"column:is_signed"`

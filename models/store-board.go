@@ -1,8 +1,8 @@
-package model
+package models
 
 // StoreBoard represents a Board for posting Attachment entities.
 type StoreBoard struct {
-	ID uint64
+	Board Board `gorm:"column:id;primary_key;unique;not null"`
 
 	PermitUserUpload          bool `gorm:"column:permit_user_upload"`
 	PermitModeratorUpload     bool `gorm:"column:permit_mod_upload"`

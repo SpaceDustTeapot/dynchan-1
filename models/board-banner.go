@@ -1,8 +1,8 @@
-package model
+package models
 
 // BoardBanner represents attachment, title, and subtitle banners for Board entities.
 type BoardBanner struct {
-	ID         uint64      `gorm:"column:id;primary_key;unique;not null"`
+	ID         int         `gorm:"column:id;primary_key"`
 	Board      Board       `gorm:"column:board;not null"`
 	Attachment *Attachment `gorm:"column:attachment;null"`
 	Title      string      `gorm:"column:title;type:varchar(255);null"`
