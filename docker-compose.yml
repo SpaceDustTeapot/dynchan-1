@@ -1,23 +1,21 @@
 version: '2'
 services:
   api:
-    container_name: dynchan_api
+    container_name: dynchan
     build: .
     ports:
       - "8080:8080"
     environment:
       - "DYNCHAN_DATABASE_DIALECT=mysql"
-      - "DYNCHAN_DATABASE_CONNECTION=dynchan:4EtjV_tkpaGKbf@database/dynchan"
+      - "DYNCHAN_DATABASE_CONNECTION=dynchan:4EtjV_tkpaGKbf@tcp(db:3306)/dynchan"
     links:
-      - database
+      - db
     depends_on:
-      - database
-
-  database:
-    container_name: dynchan_database
+      - db
+  db:
     image: mariadb
-    ports:
-      - "3306"
+    expose:
+      - 3306
     environment:
       - "MYSQL_RANDOM_ROOT_PASSWORD=yes"
       - "MYSQL_DATABASE=dynchan"
