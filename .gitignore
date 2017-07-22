@@ -1,0 +1,6 @@
+
+# Dynchan builds
+**/dynchan
+
+# Dynchan default SQLite database
+**/dynchan2.sqlite
