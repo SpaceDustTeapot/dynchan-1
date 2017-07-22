@@ -3,8 +3,11 @@ package main
 import (
 	"time"
 
-	model "./model"
+	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
+	controllers "github.com/jlettman/dynchan/controllers"
+	globals "github.com/jlettman/dynchan/globals"
+	"github.com/jlettman/dynchan/models"
 	"github.com/kelseyhightower/envconfig"
 	logging "github.com/op/go-logging"
 )
@@ -16,7 +19,6 @@ const databaseRetryAttempts = (5)
 
 func main() {
 	var spec Specification
-	var db *gorm.DB
 	var err error
 
 	InitializeLogging()
@@ -29,7 +31,7 @@ func main() {
 	attempt := 1
 
 try_database_again:
-	if db, err = gorm.Open(spec.DatabaseDialect, spec.DatabaseConnection); err != nil {
+	if globals.DB, err = gorm.Open(spec.DatabaseDialect, spec.DatabaseConnection); err != nil {
 		log.Error("database connection error", err)
 
 		if attempt < databaseRetryAttempts {
@@ -44,6 +46,13 @@ try_database_again:
 		}
 	}
 
-	model.AutoMigrate(db)
+	globals.DB.SetLogger(GormLogging{})
+	models.AutoMigrate(globals.DB)
+
+	router := gin.New()
+	router.Use(gin.Recovery())
+
+	controllers.Routes(router)
+	router.Run(":8080")
 
 }
