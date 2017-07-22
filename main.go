@@ -5,6 +5,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
 	controllers "github.com/jlettman/dynchan/controllers"
 	globals "github.com/jlettman/dynchan/globals"
 	"github.com/jlettman/dynchan/models"
